@@ -1,0 +1,36 @@
+body {
+  background-color: rgb(44, 46, 58);
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper {
+  width: 70vw;
+  max-width: 400px;
+  height: 70vh;
+  text-align: center;
+  color: #fff;
+}
+
+.input {
+  display: block;
+  width: 100%;
+  height: 25px;
+  margin-bottom: 20px;
+  outline: none;
+}
+
+.input:active {
+  outline: none;
+}
+
+.result,
+.synonyms {
+  display: block;
+  margin-top: 30px;
+  font-size: 20px;
+}
