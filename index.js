@@ -3,13 +3,14 @@ import translations from './translations.json' assert { type: "json" };
 const titleNode = document.querySelector('.js-title');
 const resultNode = document.querySelector('.js-result');
 const synonymsNode = document.querySelector('.js-synonyms');
+const exampleNode = document.querySelector('.js-example');
 const input = document.querySelector('.js-input');
 
-const acceptButton = document.querySelector('.js-accept-button');
 const nextButton = document.querySelector('.js-next-button');
 const helpButton = document.querySelector('.js-help-button');
+const exampleButton = document.querySelector('.js-example-button');
 
-acceptButton.addEventListener('click', onAccept);
+exampleButton.addEventListener('click', onExample);
 input.addEventListener('keydown', onInput);
 nextButton.addEventListener('click', onNext);
 helpButton.addEventListener('click', onHelp);
@@ -64,6 +65,11 @@ function onHelp() {
     setResult(value);
 }
 
+function onExample() {
+    const value = currentWord['Search example'];
+    setExample(value);
+}
+
 function onInput(event) {
     if (event.shiftKey && event.keyCode === 13) {
         onNext();
@@ -80,6 +86,7 @@ function onNext() {
     setInputValue('');
     setResult('');
     setSynonyms('');
+    setExample('');
 
     const randomIndex = getRandomIndex();
     setDataIndex(randomIndex);
@@ -101,6 +108,10 @@ function setResult(text) {
 
 function setSynonyms(text) {
     synonymsNode.innerHTML = text;
+}
+
+function setExample(text) {
+    exampleNode.innerHTML = text;
 }
 
 function setDataIndex(index) {
